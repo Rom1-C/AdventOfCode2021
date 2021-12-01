@@ -46,19 +46,14 @@ _atoi:                    ; Convert input to int
 
 _solv:
 
-    xor rcx, rcx
+    mov rcx, 2
 
  .a:
     inc rcx
-    cmp rcx, 1998
+    cmp rcx, 2000
     je _itoa
     mov dx, [r8 + rcx*2]
-    add dx, [r8 + rcx*2 + 2]
-    add dx, [r8 + rcx*2 + 4]
-    mov ax, [r8 + rcx*2 - 2]
-    add ax, [r8 + rcx*2]
-    add ax, [r8 + rcx*2 + 2]
-    cmp ax, dx
+    cmp [r8 + rcx*2 - 6], dx
     jae .a
     inc r9
     jmp .a
