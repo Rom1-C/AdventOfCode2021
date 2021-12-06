@@ -6,10 +6,6 @@
 %define SYS_CLOSE 3
 %define STDIN 0
 
-; The idea is to use masks to avoid creating new list
-; So we create a mask for oxygen and one for co2
-; We can then browse the list and test the mask at first to have only the remaining inputs
-
 section .rodata
 input:
   incbin "6.in"
@@ -25,7 +21,7 @@ _start:
     mov rsi, input
     mov r8, array
 
-_atoi:                    ; Convert input to int from binary 
+_atoi:                    ; Convert input to int
 
  .setup:
     xor rax, rax
